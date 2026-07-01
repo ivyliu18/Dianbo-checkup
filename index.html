@@ -37,10 +37,9 @@
   .container{max-width:1080px; margin:0 auto; padding:0 24px;}
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:700; letter-spacing:.12em;
-    color:var(--gold-400); text-transform:uppercase; margin-bottom:16px;
+    font-size:18px; font-weight:700; letter-spacing:.14em;
+    color:var(--gold-400); text-transform:uppercase; margin-bottom:18px;
   }
-  .eyebrow::before{content:""; width:22px; height:2px; background:var(--gold-400); display:inline-block;}
   .btn-cta{
     display:inline-flex; align-items:center; gap:10px;
     background:linear-gradient(135deg, var(--gold-400), var(--orange-500));
@@ -53,6 +52,22 @@
   .btn-cta:hover{transform:translateY(-2px); box-shadow:0 12px 36px rgba(232,163,61,.5);}
   .btn-cta .badge{
     background:rgba(10,27,61,.15); border-radius:999px; padding:3px 10px; font-size:12px;
+  }
+
+  /* ===== SITE HEADER ===== */
+  .site-header{
+    background:var(--cream-50);
+    border-bottom:1px solid var(--cream-100);
+    padding:16px 0;
+    text-align:center;
+  }
+  .site-header .container{
+    display:flex; align-items:center; justify-content:center; gap:12px;
+  }
+  .site-logo{width:44px; height:44px; flex-shrink:0;}
+  .site-header .brand-name{
+    font-family:"Noto Serif TC", serif; font-weight:700; font-size:17px;
+    color:var(--navy-900); letter-spacing:.04em;
   }
 
   /* ===== HERO ===== */
@@ -121,6 +136,10 @@
   .services .section-head h2{color:var(--white);}
   .services .section-head p{color:#B9C4E0; margin-top:10px;}
   .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .brand-card-img{
+    display:block; width:100%; max-width:640px; margin:0 auto 48px;
+    border-radius:18px; box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
   .svc-card{
     background:linear-gradient(180deg, var(--navy-800), var(--navy-900));
     border:1px solid rgba(232,163,61,.18);
@@ -170,8 +189,11 @@
     max-width:720px; margin:0 auto; background:var(--white);
     border-radius:20px; padding:44px clamp(20px,5vw,52px); box-shadow:0 20px 60px rgba(10,27,61,.1);
   }
-  .form-wrap h2{font-size:24px; margin-bottom:8px; color:var(--navy-900);}
-  .form-wrap .lede{color:var(--ink-600); font-size:14.5px; margin-bottom:34px;}
+  .form-logo{
+    display:block; width:88px; height:88px; margin:0 auto 20px;
+  }
+  .form-wrap h2{font-size:24px; margin-bottom:8px; color:var(--navy-900); text-align:center;}
+  .form-wrap .lede{color:var(--ink-600); font-size:14.5px; margin-bottom:34px; text-align:center;}
   .field{margin-bottom:24px;}
   .field label.qlabel{
     display:block; font-weight:700; font-size:15px; margin-bottom:10px; color:var(--navy-900);
@@ -217,6 +239,14 @@
 </style>
 </head>
 <body>
+
+<!-- ================= SITE HEADER ================= -->
+<header class="site-header">
+  <div class="container">
+    <img src="dianbo-logo.png" alt="典珀新媒體 Logo" class="site-logo">
+    <span class="brand-name">典珀新媒體</span>
+  </div>
+</header>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
@@ -276,6 +306,7 @@
       <div class="eyebrow">核心服務</div>
       <h2>典珀新媒體，用「三維度行銷」幫您打通品牌任督二脈</h2>
     </div>
+    <img src="dianbo-brand-card.png" alt="典珀新媒體 品牌識別與服務項目" class="brand-card-img">
     <div class="svc-grid">
       <div class="svc-card">
         <div class="num">SERVICE 01 · ⚡</div>
@@ -337,6 +368,7 @@
 <section class="form-section" id="form">
   <div class="container">
     <div class="form-wrap">
+      <img src="dianbo-logo.png" alt="典珀新媒體 Logo" class="form-logo">
       <h2>立即填表，預約您的專屬品牌健檢報告</h2>
       <p class="lede">填寫本表單只需 3 分鐘，我們將由專業團隊為您進行初步評估，並提供 1 次免費的線上品牌健檢諮詢（價值 NT$3,000 元）。</p>
 
