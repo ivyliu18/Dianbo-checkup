@@ -526,11 +526,17 @@ form.addEventListener('submit', async function(e){
       body: JSON.stringify(payload)
     });
 
-    let ok = res.ok;
+    const rawText = await res.text();
+    let ok = false;
+    let detail = '';
     try {
-      const data = await res.json();
+      const data = JSON.parse(rawText);
       ok = data && data.result === 'success';
-    } catch(_) { /* 若沒有回傳 JSON，仍以 res.ok 判斷 */ }
+      if(!ok) detail = JSON.stringify(data);
+    } catch(_) {
+      // Apps Script 沒有回傳合法 JSON，通常代表回傳的是錯誤頁 (HTML) 或權限問題
+      detail = rawText.slice(0, 200);
+    }
 
     if(ok){
       form.reset();
@@ -539,10 +545,10 @@ form.addEventListener('submit', async function(e){
       statusMsg.textContent = '✅ 送出成功！我們將盡快與您聯繫，安排專屬品牌健檢諮詢。';
       statusMsg.className = 'status-msg show ok';
     } else {
-      throw new Error('submit failed');
+      throw new Error('HTTP ' + res.status + ' | ' + detail);
     }
   } catch(err){
-    statusMsg.textContent = '送出失敗，請稍後再試一次，或直接來電/來信與我們聯繫。';
+    statusMsg.textContent = '送出失敗（除錯訊息：' + err.message + '）請將這段文字截圖給網站管理員。';
     statusMsg.className = 'status-msg show err';
   } finally {
     submitBtn.disabled = false;
