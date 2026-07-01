@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>典珀新媒體｜品牌免費健檢活動</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0A1B3D;
+    --navy-800:#122A56;
+    --navy-700:#1B3A6E;
+    --gold-400:#E8A33D;
+    --gold-300:#F2C270;
+    --orange-500:#FF7A3D;
+    --cream-50:#F7F4EE;
+    --cream-100:#EFEAE0;
+    --ink-900:#10182B;
+    --ink-600:#4A5468;
+    --white:#FFFFFF;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans TC", sans-serif;
+    color:var(--ink-900);
+    background:var(--cream-50);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:"Noto Serif TC", serif; letter-spacing:.01em;}
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit;}
+  .container{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; letter-spacing:.12em;
+    color:var(--gold-400); text-transform:uppercase; margin-bottom:16px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--gold-400); display:inline-block;}
+  .btn-cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg, var(--gold-400), var(--orange-500));
+    color:var(--navy-900); font-weight:700; font-size:17px;
+    padding:16px 32px; border-radius:999px; border:none; cursor:pointer;
+    box-shadow:0 8px 30px rgba(232,163,61,.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+    text-decoration:none;
+  }
+  .btn-cta:hover{transform:translateY(-2px); box-shadow:0 12px 36px rgba(232,163,61,.5);}
+  .btn-cta .badge{
+    background:rgba(10,27,61,.15); border-radius:999px; padding:3px 10px; font-size:12px;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative; overflow:hidden;
+    background:radial-gradient(ellipse at 70% 20%, var(--navy-700) 0%, var(--navy-900) 55%, #071229 100%);
+    color:var(--white);
+    padding:110px 0 90px;
+    text-align:center;
+  }
+  .hero-signal{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+  }
+  .hero-signal svg{width:min(900px,140%); height:auto; opacity:.55;}
+  .hero-ring{
+    fill:none; stroke:var(--gold-400); stroke-opacity:.35;
+    transform-origin:center; animation:pulse 4.5s ease-in-out infinite;
+  }
+  .hero-ring.r2{stroke:var(--orange-500); animation-delay:1.1s;}
+  .hero-ring.r3{stroke:var(--gold-300); animation-delay:2.2s;}
+  @keyframes pulse{
+    0%{transform:scale(.85); opacity:0;}
+    35%{opacity:.5;}
+    100%{transform:scale(1.25); opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-ring{animation:none; opacity:.25;}
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .hero h1{
+    font-size:clamp(28px, 5vw, 46px); font-weight:900; line-height:1.35; margin-bottom:10px;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(120deg, var(--gold-300), var(--orange-500));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.sub{
+    max-width:640px; margin:22px auto 36px; font-size:16px; color:#C9D3EA;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:10px 22px; justify-content:center;
+    margin-top:34px; font-size:13px; color:#9FB0D6;
+  }
+  .hero-meta span{display:inline-flex; align-items:center; gap:6px;}
+  .hero-meta span::before{content:"●"; color:var(--gold-400); font-size:8px;}
+
+  /* ===== SECTION SHARED ===== */
+  section{padding:88px 0;}
+  .section-head{text-align:center; max-width:680px; margin:0 auto 52px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,32px); font-weight:700; color:var(--navy-900);}
+
+  /* ===== PAIN POINTS ===== */
+  .pain-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .pain-card{
+    background:var(--white); border-radius:var(--radius); padding:32px 26px;
+    border:1px solid var(--cream-100); border-top:4px solid var(--orange-500);
+    box-shadow:0 10px 30px rgba(10,27,61,.06);
+  }
+  .pain-card .icon{font-size:30px; margin-bottom:16px;}
+  .pain-card h3{font-size:17px; font-weight:700; margin-bottom:10px; color:var(--navy-900);}
+  .pain-card p{font-size:14.5px; color:var(--ink-600);}
+
+  /* ===== SERVICES ===== */
+  .services{background:var(--navy-900); color:var(--white);}
+  .services .section-head h2{color:var(--white);}
+  .services .section-head p{color:#B9C4E0; margin-top:10px;}
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .svc-card{
+    background:linear-gradient(180deg, var(--navy-800), var(--navy-900));
+    border:1px solid rgba(232,163,61,.18);
+    border-radius:var(--radius); padding:30px 26px;
+  }
+  .svc-card .num{font-size:12px; letter-spacing:.14em; color:var(--gold-400); font-weight:700; margin-bottom:14px;}
+  .svc-card h3{font-size:18px; font-weight:700; margin-bottom:12px; color:var(--white);}
+  .svc-card p{font-size:14px; color:#C3CDE6;}
+
+  /* ===== BENEFITS ===== */
+  .benefits-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .benefit-card{
+    background:var(--white); border-radius:var(--radius); padding:30px 26px;
+    box-shadow:0 10px 30px rgba(10,27,61,.06);
+  }
+  .benefit-card .tag{
+    display:inline-block; font-size:12px; font-weight:700; color:var(--navy-900);
+    background:var(--gold-300); padding:4px 12px; border-radius:999px; margin-bottom:14px;
+  }
+  .benefit-card h3{font-size:17px; font-weight:700; margin-bottom:8px;}
+  .benefit-card p{font-size:14.5px; color:var(--ink-600);}
+
+  /* ===== SCARCITY ===== */
+  .scarcity{
+    background:linear-gradient(120deg, var(--navy-900), var(--navy-700));
+    color:var(--white); text-align:center; position:relative; overflow:hidden;
+  }
+  .scarcity::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 50%, rgba(232,163,61,.15), transparent 60%);
+  }
+  .scarcity-inner{position:relative; z-index:1; max-width:640px; margin:0 auto;}
+  .scarcity h2{font-size:clamp(22px,3vw,28px); margin-bottom:18px;}
+  .scarcity p{color:#D8DFF2; font-size:15.5px; margin-bottom:10px;}
+  .scarcity .price{color:var(--gold-300); font-weight:700;}
+  .counter{
+    display:inline-flex; align-items:center; gap:12px; margin:26px 0 30px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(232,163,61,.35);
+    padding:12px 24px; border-radius:999px; font-weight:700; font-size:15px;
+  }
+  .counter .dot{width:8px; height:8px; border-radius:50%; background:var(--orange-500); animation:blink 1.4s infinite;}
+  @keyframes blink{50%{opacity:.25;}}
+
+  /* ===== FORM ===== */
+  .form-section{background:var(--cream-100);}
+  .form-wrap{
+    max-width:720px; margin:0 auto; background:var(--white);
+    border-radius:20px; padding:44px clamp(20px,5vw,52px); box-shadow:0 20px 60px rgba(10,27,61,.1);
+  }
+  .form-wrap h2{font-size:24px; margin-bottom:8px; color:var(--navy-900);}
+  .form-wrap .lede{color:var(--ink-600); font-size:14.5px; margin-bottom:34px;}
+  .field{margin-bottom:24px;}
+  .field label.qlabel{
+    display:block; font-weight:700; font-size:15px; margin-bottom:10px; color:var(--navy-900);
+  }
+  .field label.qlabel .req{color:var(--orange-500); margin-left:2px;}
+  .field input[type=text], .field input[type=tel], .field input[type=email], .field textarea{
+    width:100%; padding:13px 15px; border:1.5px solid #DFE3EE; border-radius:10px;
+    font-size:15px; font-family:inherit; color:var(--ink-900); background:#FCFCFA;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--gold-400);}
+  .field textarea{resize:vertical; min-height:90px;}
+  .options{display:flex; flex-direction:column; gap:10px;}
+  .opt{
+    display:flex; align-items:flex-start; gap:10px; padding:12px 14px;
+    border:1.5px solid #E4E7F0; border-radius:10px; cursor:pointer; font-size:14.5px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .opt:hover{border-color:var(--gold-400); background:#FFFBF2;}
+  .opt input{margin-top:3px; accent-color:var(--orange-500);}
+  .opt .other-input{
+    margin-top:8px; width:100%; padding:9px 12px; border:1.5px solid #E4E7F0; border-radius:8px; font-size:14px; font-family:inherit;
+  }
+  .submit-row{margin-top:36px; text-align:center;}
+  .submit-row button{width:100%; justify-content:center;}
+  .submit-row button:disabled{opacity:.6; cursor:not-allowed; transform:none;}
+  .status-msg{
+    margin-top:16px; text-align:center; font-size:14px; font-weight:600; display:none;
+  }
+  .status-msg.show{display:block;}
+  .status-msg.ok{color:#1F8A56;}
+  .status-msg.err{color:#C4432F;}
+
+  footer{
+    background:var(--navy-900); color:#8C9AC0; text-align:center; padding:30px 0; font-size:13px;
+  }
+
+  @media (max-width: 860px){
+    .pain-grid, .svc-grid, .benefits-grid{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+    .hero{padding:88px 0 64px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-signal" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <circle class="hero-ring r1" cx="200" cy="200" r="90"></circle>
+      <circle class="hero-ring r2" cx="200" cy="200" r="90"></circle>
+      <circle class="hero-ring r3" cx="200" cy="200" r="90"></circle>
+    </svg>
+  </div>
+  <div class="container hero-inner">
+    <div class="eyebrow" style="justify-content:center; display:flex;">典珀新媒體 ｜ 品牌健檢活動</div>
+    <h1>您的品牌聲音，<span class="accent">夠響亮嗎？</span><br>限時免費品牌健檢，點亮您的關鍵影響力！</h1>
+    <p class="sub">跨界整合「FB 社群代操 × 聯播新聞曝光 × 電視台專訪」，由資深媒體顧問親自坐鎮，為您的企業量身打造專屬的盲點突破報告。</p>
+    <a href="#form" class="btn-cta">
+      立即預約免費品牌健檢 <span class="badge">限量 20 名</span>
+    </a>
+    <div class="hero-meta">
+      <span>價值 NT$3,000 免費諮詢</span>
+      <span>僅需 3 分鐘填寫</span>
+      <span>額滿即截止</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAIN POINTS ================= -->
+<section class="pain">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">痛點共鳴</div>
+      <h2>行銷做了很多，卻總是看不到成效，您是否也面臨這些困境？</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">📉</div>
+        <h3>FB 粉專沒人理</h3>
+        <p>天天發文卻像對空氣說話？互動率低、廣告成本越來越高，找不到精準客群。</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🔍</div>
+        <h3>搜尋品牌一片空白</h3>
+        <p>客戶上網搜尋不到您的正面新聞或評價？缺乏網路信任背書，白白流失潛在訂單。</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🏛️</div>
+        <h3>缺乏權威公信力</h3>
+        <p>產品明明很好，卻因為沒有主流媒體報導，在產業中難以樹立領導地位、無法提高客單價。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">核心服務</div>
+      <h2>典珀新媒體，用「三維度行銷」幫您打通品牌任督二脈</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="num">SERVICE 01 · ⚡</div>
+        <h3>FB 社群專業代操</h3>
+        <p>不只發文，更做深度溝通！我們提供高質感視覺設計、切中痛點的文案筆觸與社群活動規劃，全面提升您的粉專黏著度與轉單成效。</p>
+      </div>
+      <div class="svc-card">
+        <div class="num">SERVICE 02 · 📰</div>
+        <h3>主流媒體聯播新聞</h3>
+        <p>在短時間內將您的品牌故事鋪滿主流新聞網站。建立強大的 Google 搜尋正面屏障，讓客戶一搜就信任，打造堅實的網譽形象。</p>
+      </div>
+      <div class="svc-card">
+        <div class="num">SERVICE 03 · 📺</div>
+        <h3>權威電視台專訪報導</h3>
+        <p>登上電視螢幕，由權威媒體為您的企業背書！快速拉高品牌格局、創造核心信任感，是您招商、擴展市場與提升產業地位的終極利器。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">健檢價值</div>
+      <h2>這不只是一次諮詢，而是一次品牌升級的契機</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="tag">專業分析</span>
+        <h3>360° 盲點拆解</h3>
+        <p>針對您現有的社群、網路聲量、媒體形象進行全方位健檢。</p>
+      </div>
+      <div class="benefit-card">
+        <span class="tag">競品對標</span>
+        <h3>找出藍海突圍點</h3>
+        <p>分析同行對手的行銷策略，找出您的差異化優勢與機會缺口。</p>
+      </div>
+      <div class="benefit-card">
+        <span class="tag">落地建議</span>
+        <h3>馬上可執行的策略</h3>
+        <p>拒絕空洞理論，給您馬上就能執行的 FB 經營、新聞布局與電視媒體策略報告。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCARCITY ================= -->
+<section class="scarcity">
+  <div class="container scarcity-inner">
+    <h2>行銷預算要花在刀口上，先健檢、再布局！</h2>
+    <div class="counter"><span class="dot"></span> 名額倒數中 · 僅限前 20 名企業/品牌</div>
+    <p>為了保證每一份健檢報告的深度與品質，本次活動僅限前 20 名企業/品牌免費參與。</p>
+    <p>額滿即恢復原價（<span class="price">價值 NT$6,000 元</span>）。請立即搶位！</p>
+  </div>
+</section>
+
+<!-- ================= FORM ================= -->
+<section class="form-section" id="form">
+  <div class="container">
+    <div class="form-wrap">
+      <h2>立即填表，預約您的專屬品牌健檢報告</h2>
+      <p class="lede">填寫本表單只需 3 分鐘，我們將由專業團隊為您進行初步評估，並提供 1 次免費的線上品牌健檢諮詢（價值 NT$3,000 元）。</p>
+
+      <form id="healthCheckForm">
+
+        <div class="field">
+          <label class="qlabel">您的姓名<span class="req">*</span></label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">公司 / 品牌名稱<span class="req">*</span></label>
+          <input type="text" name="company" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">職稱 / 職位<span class="req">*</span></label>
+          <input type="text" name="title" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">聯絡電話<span class="req">*</span></label>
+          <input type="tel" name="phone" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">電子信箱 (Email)<span class="req">*</span></label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">LINE ID</label>
+          <input type="text" name="lineId">
+        </div>
+
+        <div class="field">
+          <label class="qlabel">您的品牌屬於哪種產業（單選）<span class="req">*</span></label>
+          <div class="options">
+            <label class="opt"><input type="radio" name="industry" value="科技 / 軟體 / 新創" required> 科技 / 軟體 / 新創</label>
+            <label class="opt"><input type="radio" name="industry" value="電商零售 / 傳統製造" required> 電商零售 / 傳統製造</label>
+            <label class="opt"><input type="radio" name="industry" value="餐飲 / 食品 / 旅遊" required> 餐飲 / 食品 / 旅遊</label>
+            <label class="opt"><input type="radio" name="industry" value="美妝保養 / 醫療生技" required> 美妝保養 / 醫療生技</label>
+            <label class="opt"><input type="radio" name="industry" value="教育 / 顧問 / 專業服務" required> 教育 / 顧問 / 專業服務</label>
+            <label class="opt">
+              <input type="radio" name="industry" value="其他" required id="industryOtherRadio">
+              <span style="flex:1;">
+                其他
+                <input type="text" class="other-input" name="industryOther" placeholder="請填寫" disabled>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">目前在品牌行銷上，您遇到最大的挑戰是什麼（可複選）</label>
+          <div class="options">
+            <label class="opt"><input type="checkbox" name="challenges" value="粉專互動率低，不知道怎麼跟粉絲互動（FB代操痛點）"> 粉專互動率低，不知道怎麼跟粉絲互動（FB代操痛點）</label>
+            <label class="opt"><input type="checkbox" name="challenges" value="廣告成本越來越高，轉單效果不如預期"> 廣告成本越來越高，轉單效果不如預期</label>
+            <label class="opt"><input type="checkbox" name="challenges" value="品牌在網路上搜尋不到太多正面新聞或評價（聯播新聞痛點）"> 品牌在網路上搜尋不到太多正面新聞或評價（聯播新聞痛點）</label>
+            <label class="opt"><input type="checkbox" name="challenges" value="品牌缺乏權威感與信任度，想提升產業地位（電視台專訪痛點）"> 品牌缺乏權威感與信任度，想提升產業地位（電視台專訪痛點）</label>
+            <label class="opt"><input type="checkbox" name="challenges" value="預算有限，不知道該把行銷經費用在哪裡"> 預算有限，不知道該把行銷經費用在哪裡</label>
+            <label class="opt">
+              <input type="checkbox" name="challenges" value="其他" id="challengeOtherCheck">
+              <span style="flex:1;">
+                其他
+                <input type="text" class="other-input" name="challengeOther" placeholder="請填寫" disabled>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">對於「典珀新媒體」提供的服務，您目前對哪幾項最感興趣（可複選）</label>
+          <div class="options">
+            <label class="opt"><input type="checkbox" name="interests" value="主流媒體聯播新聞 — 想在短時間內獲得大量新聞曝光、建立 Google 搜尋正面屏障"> 【主流媒體聯播新聞】— 想在短時間內獲得大量新聞曝光、建立 Google 搜尋正面屏障。</label>
+            <label class="opt"><input type="checkbox" name="interests" value="電視台專訪/專題報導 — 想透過電視媒體背書，快速打造品牌權威感、提升企業形象"> 【電視台專訪/專題報導】— 想透過電視媒體背書，快速打造品牌權威感、提升企業形象。</label>
+            <label class="opt"><input type="checkbox" name="interests" value="FB 粉絲專頁代操 — 想提升社群黏著度、固定產出高質感內容與視覺設計"> 【FB 粉絲專頁代操】— 想提升社群黏著度、固定產出高質感內容與視覺設計。</label>
+            <label class="opt"><input type="checkbox" name="interests" value="以上皆想了解，希望能有整合性的策略規劃"> 以上皆想了解，希望能有整合性的策略規劃。</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">如果您獲得【聯播新聞曝光】或【電視台專訪】的機會，您最想宣傳品牌哪一個亮點</label>
+          <textarea name="brandHighlight" placeholder="例如：創辦人故事、明星商品的獨家專利、最新公益活動…等"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">請問您目前預計投入的品牌行銷每季預算</label>
+          <div class="options">
+            <label class="opt"><input type="radio" name="budget" value="NT$30,000 - NT$100,000"> NT$30,000 - NT$100,000</label>
+            <label class="opt"><input type="radio" name="budget" value="NT$100,000 - NT$200,000"> NT$100,000 - NT$200,000</label>
+            <label class="opt"><input type="radio" name="budget" value="NT$200,000以上"> NT$200,000以上</label>
+            <label class="opt"><input type="radio" name="budget" value="目前尚無具體預算，想先聽聽專業建議"> 目前尚無具體預算，想先聽聽專業建議</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="qlabel">方便與您進行【品牌健檢報告】線上說明的時間（可複選）</label>
+          <div class="options">
+            <label class="opt"><input type="checkbox" name="availability" value="平日 下午 (13:00 - 18:00)"> 平日 下午 (13:00 - 18:00)</label>
+            <label class="opt"><input type="checkbox" name="availability" value="平日 晚上 (18:00 - 21:00)"> 平日 晚上 (18:00 - 21:00)</label>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-cta" id="submitBtn">送出，預約我的品牌健檢</button>
+          <div class="status-msg" id="statusMsg"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 典珀新媒體 Dianbo New Media．品牌免費健檢活動
+</footer>
+
+<script>
+/* =========================================================================
+   Google Sheets 串接設定
+   -------------------------------------------------------------------------
+   1. 把下面的 GAS_WEB_APP_URL 換成你自己部署好的 Google Apps Script
+      Web App 網址（詳細部署步驟請看隨附的說明文件）。
+   2. 表單送出後會以 POST 方式，把每個欄位打包成 JSON 傳給 Apps Script，
+      再由 Apps Script 寫入 Google Sheet 的新一列。
+   ========================================================================= */
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxNmg5Do25Z1_2GL4DGoYYN6fEh2yDJ6O1hSWcjCWMibFZCwUxSFAewv3UYAgOBDSAQRA/exec";
+
+// 其他選項的輸入框：勾選/選取「其他」時才能輸入
+document.getElementById('industryOtherRadio').addEventListener('change', function(){
+  document.querySelector('input[name="industryOther"]').disabled = !this.checked;
+});
+document.querySelectorAll('input[name="industry"]').forEach(function(radio){
+  radio.addEventListener('change', function(){
+    if(this.id !== 'industryOtherRadio'){
+      document.querySelector('input[name="industryOther"]').disabled = true;
+    }
+  });
+});
+document.getElementById('challengeOtherCheck').addEventListener('change', function(){
+  document.querySelector('input[name="challengeOther"]').disabled = !this.checked;
+});
+
+const form = document.getElementById('healthCheckForm');
+const submitBtn = document.getElementById('submitBtn');
+const statusMsg = document.getElementById('statusMsg');
+
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  if(GAS_WEB_APP_URL.indexOf('PASTE_YOUR') === 0){
+    statusMsg.textContent = '尚未設定 Google Sheet 連結，請聯絡網站管理員完成串接設定。';
+    statusMsg.className = 'status-msg show err';
+    return;
+  }
+
+  const formData = new FormData(form);
+  const payload = {
+    "填寫時間": new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
+    "姓名": formData.get('name') || '',
+    "公司/品牌名稱": formData.get('company') || '',
+    "職稱/職位": formData.get('title') || '',
+    "聯絡電話": formData.get('phone') || '',
+    "電子信箱": formData.get('email') || '',
+    "LINE ID": formData.get('lineId') || '',
+    "產業": formData.get('industry') === '其他'
+      ? ('其他：' + (formData.get('industryOther') || ''))
+      : (formData.get('industry') || ''),
+    "最大挑戰": formData.getAll('challenges').map(function(v){
+        return v === '其他' ? ('其他：' + (formData.get('challengeOther') || '')) : v;
+      }).join('；'),
+    "感興趣服務": formData.getAll('interests').join('；'),
+    "品牌亮點": formData.get('brandHighlight') || '',
+    "每季預算": formData.get('budget') || '',
+    "方便說明時間": formData.getAll('availability').join('；')
+  };
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = '送出中…';
+  statusMsg.className = 'status-msg';
+
+  try {
+    // 使用 text/plain 避免瀏覽器送出 CORS 預檢請求（Apps Script 不支援自訂 preflight 標頭）
+    const res = await fetch(GAS_WEB_APP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    let ok = res.ok;
+    try {
+      const data = await res.json();
+      ok = data && data.result === 'success';
+    } catch(_) { /* 若沒有回傳 JSON，仍以 res.ok 判斷 */ }
+
+    if(ok){
+      form.reset();
+      document.querySelector('input[name="industryOther"]').disabled = true;
+      document.querySelector('input[name="challengeOther"]').disabled = true;
+      statusMsg.textContent = '✅ 送出成功！我們將盡快與您聯繫，安排專屬品牌健檢諮詢。';
+      statusMsg.className = 'status-msg show ok';
+    } else {
+      throw new Error('submit failed');
+    }
+  } catch(err){
+    statusMsg.textContent = '送出失敗，請稍後再試一次，或直接來電/來信與我們聯繫。';
+    statusMsg.className = 'status-msg show err';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '送出，預約我的品牌健檢';
+  }
+});
+</script>
+
+</body>
+</html>
