@@ -227,6 +227,18 @@
     background:var(--navy-900); color:#8C9AC0; text-align:center; padding:30px 0; font-size:13px;
   }
 
+  /* ===== SOCIAL LINKS ===== */
+  .social-section{background:var(--cream-100); padding:0 0 72px;}
+  .social-wrap{max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:16px;}
+  .social-link{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    background:var(--cream-50); border:1.5px solid #D9C9A8; border-radius:999px;
+    padding:16px 24px; font-size:15px; font-weight:600; color:var(--navy-900);
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .social-link:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(10,27,61,.08); background:var(--white);}
+  .social-link .icon{font-size:18px; line-height:1;}
+
   @media (max-width: 860px){
     .pain-grid, .svc-grid, .benefits-grid{grid-template-columns:1fr;}
     section{padding:64px 0;}
@@ -355,7 +367,7 @@
     <h2>行銷預算要花在刀口上，先健檢、再布局！</h2>
     <div class="counter"><span class="dot"></span> 名額倒數中 · 僅限前 20 名企業/品牌</div>
     <p>為了保證每一份健檢報告的深度與品質，本次活動僅限前 20 名企業/品牌免費參與。</p>
-    <p>額滿即恢復原價（<span class="price">價值 NT$6,000 元</span>）。請立即搶位！</p>
+    <p>額滿即恢復原價（<span class="price">價值 NT$3,000 元</span>）。請立即搶位！</p>
   </div>
 </section>
 
@@ -477,6 +489,20 @@
   </div>
 </section>
 
+<!-- ================= SOCIAL LINKS ================= -->
+<section class="social-section">
+  <div class="container">
+    <div class="social-wrap">
+      <a href="https://www.facebook.com/tspower.tw/" target="_blank" rel="noopener" class="social-link">
+        <span class="icon">🌐</span> 典珀新媒體 官方網站 (Facebook)
+      </a>
+      <a href="https://www.youtube.com/@dianpuo" target="_blank" rel="noopener" class="social-link">
+        <span class="icon">📺</span> 訂閱 YouTube 官方頻道
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
   © 2026 典珀新媒體 Dianbo New Media．品牌免費健檢活動
 </footer>
@@ -583,6 +609,6 @@ form.addEventListener('submit', async function(e){
   }
 });
 </script>
- 
+
 </body>
 </html>
