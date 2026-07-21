@@ -179,6 +179,20 @@
   .counter .dot{width:8px; height:8px; border-radius:50%; background:var(--orange-500); animation:blink 1.4s infinite;}
   @keyframes blink{50%{opacity:.25;}}
 
+  /* ===== PROCESS ===== */
+  .process{background:var(--cream-50);}
+  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .process-card{
+    background:var(--white); border-radius:var(--radius); padding:28px 24px;
+    box-shadow:0 10px 30px rgba(10,27,61,.06);
+  }
+  .process-card .step-num{
+    font-family:"Noto Serif TC", serif; font-size:26px; font-weight:900;
+    color:var(--orange-500); line-height:1; margin-bottom:14px;
+  }
+  .process-card h3{font-size:16px; font-weight:700; margin-bottom:8px; color:var(--navy-900);}
+  .process-card p{font-size:14px; color:var(--ink-600);}
+
   /* ===== FORM ===== */
   .form-section{background:var(--cream-100);}
   .form-wrap{
@@ -241,6 +255,7 @@
 
   @media (max-width: 860px){
     .pain-grid, .svc-grid, .benefits-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:repeat(2,1fr);}
     section{padding:64px 0;}
     .hero{padding:88px 0 64px;}
   }
@@ -268,7 +283,7 @@
   <div class="container hero-inner">
     <div class="eyebrow" style="justify-content:center; display:flex;">典珀新媒體 ｜ 品牌健檢活動</div>
     <h1>您的品牌聲音，<span class="accent">夠響亮嗎？</span><br>限時免費品牌健檢，點亮您的關鍵影響力！</h1>
-    <p class="sub">跨界整合「FB 社群代操 × 聯播新聞曝光 × 電視台專訪」，由資深媒體顧問親自坐鎮，為您的企業量身打造專屬的盲點突破報告。</p>
+    <p class="sub">跨界整合「短影音代操 × 聯播新聞曝光 × 電視台專訪」，由資深媒體顧問親自坐鎮，為您的企業量身打造專屬的盲點突破報告。</p>
     <a href="#form" class="btn-cta">
       立即預約免費品牌健檢 <span class="badge">限量 20 名</span>
     </a>
@@ -290,8 +305,8 @@
     <div class="pain-grid">
       <div class="pain-card">
         <div class="icon">📉</div>
-        <h3>FB 粉專沒人理</h3>
-        <p>天天發文卻像對空氣說話？互動率低、廣告成本越來越高，找不到精準客群。</p>
+        <h3>短影音做了沒聲量</h3>
+        <p>影片拍了一支又一支，播放數卻停在三位數？抓不到演算法邏輯，也找不到精準客群。</p>
       </div>
       <div class="pain-card">
         <div class="icon">🔍</div>
@@ -316,9 +331,9 @@
     </div>
     <div class="svc-grid">
       <div class="svc-card">
-        <div class="num">SERVICE 01 · ⚡</div>
-        <h3>FB 社群專業代操</h3>
-        <p>不只發文，更做深度溝通！我們提供高質感視覺設計、切中痛點的文案筆觸與社群活動規劃，全面提升您的粉專黏著度與轉單成效。</p>
+        <div class="num">SERVICE 01 · 🎬</div>
+        <h3>個人 / 品牌短影音代操</h3>
+        <p>從腳本、拍攝到剪輯一手包辦！針對個人品牌與企業形象量身打造短影音內容，掌握演算法紅利，用最短的時間創造最高的曝光與轉單成效。</p>
       </div>
       <div class="svc-card">
         <div class="num">SERVICE 02 · 📰</div>
@@ -355,7 +370,7 @@
       <div class="benefit-card">
         <span class="tag">落地建議</span>
         <h3>馬上可執行的策略</h3>
-        <p>拒絕空洞理論，給您馬上就能執行的 FB 經營、新聞布局與電視媒體策略報告。</p>
+        <p>拒絕空洞理論，給您馬上就能執行的短影音經營、新聞布局與電視媒體策略報告。</p>
       </div>
     </div>
   </div>
@@ -368,6 +383,38 @@
     <div class="counter"><span class="dot"></span> 名額倒數中 · 僅限前 20 名企業/品牌</div>
     <p>為了保證每一份健檢報告的深度與品質，本次活動僅限前 20 名企業/品牌免費參與。</p>
     <p>額滿即恢復原價（<span class="price">價值 NT$3,000 元</span>）。請立即搶位！</p>
+  </div>
+</section>
+
+<!-- ================= 健檢流程 ================= -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">健檢流程</div>
+      <h2>只需要 3 分鐘，先找出品牌最該修正的地方</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="step-num">01</div>
+        <h3>填寫基本資料</h3>
+        <p>留下品牌、網站與聯絡方式。</p>
+      </div>
+      <div class="process-card">
+        <div class="step-num">02</div>
+        <h3>選擇目前問題</h3>
+        <p>勾選你目前最困擾的行銷狀況。</p>
+      </div>
+      <div class="process-card">
+        <div class="step-num">03</div>
+        <h3>進行品牌分析</h3>
+        <p>從官網、搜尋、社群與轉換面向判斷。</p>
+      </div>
+      <div class="process-card">
+        <div class="step-num">04</div>
+        <h3>取得改善建議</h3>
+        <p>收到可執行的品牌健檢方向。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -510,11 +557,6 @@
 <script>
 /* =========================================================================
    Google Sheets 串接設定
-   -------------------------------------------------------------------------
-   1. 把下面的 GAS_WEB_APP_URL 換成你自己部署好的 Google Apps Script
-      Web App 網址（詳細部署步驟請看隨附的說明文件）。
-   2. 表單送出後會以 POST 方式，把每個欄位打包成 JSON 傳給 Apps Script，
-      再由 Apps Script 寫入 Google Sheet 的新一列。
    ========================================================================= */
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzlBhkLLzstoCKAxCZGmoj33uqpl1tsOkpOfeAnL9EDmviT98FF0HJfSK1SqjStRLiqAA/exec";
 
@@ -572,7 +614,6 @@ form.addEventListener('submit', async function(e){
   statusMsg.className = 'status-msg';
 
   try {
-    // 使用 text/plain 避免瀏覽器送出 CORS 預檢請求（Apps Script 不支援自訂 preflight 標頭）
     const res = await fetch(GAS_WEB_APP_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -587,7 +628,6 @@ form.addEventListener('submit', async function(e){
       ok = data && data.result === 'success';
       if(!ok) detail = JSON.stringify(data);
     } catch(_) {
-      // Apps Script 沒有回傳合法 JSON，通常代表回傳的是錯誤頁 (HTML) 或權限問題
       detail = rawText.slice(0, 200);
     }
 
