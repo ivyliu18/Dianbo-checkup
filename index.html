@@ -120,6 +120,55 @@
   .section-head{text-align:center; max-width:680px; margin:0 auto 52px;}
   .section-head h2{font-size:clamp(24px,3.4vw,32px); font-weight:700; color:var(--navy-900);}
 
+  /* ===== HERO extras ===== */
+  .pretag{font-size:13px; font-weight:700; letter-spacing:.08em; color:#9FB0D6; margin-bottom:10px;}
+  .hero-label{font-size:20px; font-weight:700; color:var(--gold-300); margin:18px 0 4px;}
+
+  /* ===== STORY BANNER ===== */
+  .story-banner{background:var(--cream-50); text-align:center;}
+  .story-banner-inner{max-width:640px; margin:0 auto;}
+  .story-banner-eyebrow{font-size:13px; font-weight:700; letter-spacing:.14em; color:var(--gold-400); margin-bottom:16px; text-transform:uppercase;}
+  .story-banner h2{
+    font-size:clamp(26px,3.6vw,36px); font-weight:900; color:var(--navy-900);
+    line-height:1.35; margin-bottom:24px; font-family:"Noto Serif TC", serif;
+  }
+  .badge-row{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-bottom:24px;}
+  .badge-pill{
+    background:var(--white); border:1.5px solid var(--cream-100); border-radius:999px;
+    padding:8px 20px; font-size:13.5px; font-weight:600; color:var(--navy-900);
+    box-shadow:0 6px 18px rgba(10,27,61,.06);
+  }
+  .story-banner-cta{font-size:18px; font-weight:700; color:var(--orange-500);}
+
+  /* ===== SERVICES 4-col ===== */
+  .svc-grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+
+  /* ===== EVENT TYPES TAG CLOUD ===== */
+  .event-types{background:var(--cream-100);}
+  .tag-cloud{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:840px; margin:0 auto;}
+  .tag-pill{
+    background:var(--white); border:1.5px solid #E4E7F0; border-radius:999px;
+    padding:9px 18px; font-size:13.5px; font-weight:600; color:var(--navy-900);
+  }
+
+  /* ===== FEATURED STORIES ===== */
+  .stories{background:var(--cream-50);}
+  .story-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  .story-card{
+    display:block; background:var(--white); border-radius:var(--radius); padding:28px 26px;
+    box-shadow:0 10px 30px rgba(10,27,61,.06); text-decoration:none; color:inherit;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .story-card:hover{transform:translateY(-3px); box-shadow:0 16px 40px rgba(10,27,61,.12);}
+  .story-num{font-family:"Noto Serif TC", serif; font-size:13px; font-weight:900; color:var(--gold-400); display:inline-block; margin-bottom:10px;}
+  .story-cat{
+    display:inline-block; font-size:11.5px; font-weight:700; color:var(--navy-900);
+    background:var(--gold-300); padding:3px 10px; border-radius:999px; margin-bottom:10px; margin-left:8px;
+  }
+  .story-source{font-size:12.5px; color:var(--ink-600); margin-bottom:6px;}
+  .story-card h3{font-size:16.5px; font-weight:700; color:var(--navy-900); margin-bottom:14px; line-height:1.5;}
+  .story-link{font-size:13.5px; font-weight:700; color:var(--orange-500);}
+
   /* ===== AI VISIBILITY CHECKLIST ===== */
   .checklist{background:var(--cream-50);}
   .checklist-grid{
@@ -230,6 +279,10 @@
     display:block; font-weight:700; font-size:15px; margin-bottom:10px; color:var(--navy-900);
   }
   .field label.qlabel .req{color:var(--orange-500); margin-left:2px;}
+  .field label.qlabel .qnum{
+    color:var(--gold-400); font-family:"Noto Serif TC", serif; font-weight:900;
+    margin-right:8px;
+  }
   .field input[type=text], .field input[type=tel], .field input[type=email], .field textarea{
     width:100%; padding:13px 15px; border:1.5px solid #DFE3EE; border-radius:10px;
     font-size:15px; font-family:inherit; color:var(--ink-900); background:#FCFCFA;
@@ -248,6 +301,9 @@
   .opt .other-input{
     margin-top:8px; width:100%; padding:9px 12px; border:1.5px solid #E4E7F0; border-radius:8px; font-size:14px; font-family:inherit;
   }
+  .submit-row{margin-top:36px; text-align:center;}
+  .submit-row button{width:100%; justify-content:center;}
+  .submit-row button:disabled{opacity:.6; cursor:not-allowed; transform:none;}
   .submit-row{margin-top:36px; text-align:center;}
   .submit-row button{width:100%; justify-content:center;}
   .submit-row button:disabled{opacity:.6; cursor:not-allowed; transform:none;}
@@ -277,8 +333,13 @@
   @media (max-width: 860px){
     .pain-grid, .benefits-grid, .svc-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:repeat(2,1fr);}
+    .svc-grid-4{grid-template-columns:repeat(2,1fr);}
+    .story-grid{grid-template-columns:1fr;}
     section{padding:64px 0;}
     .hero{padding:88px 0 64px;}
+  }
+  @media (max-width: 560px){
+    .svc-grid-4{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -302,64 +363,31 @@
     </svg>
   </div>
   <div class="container hero-inner">
-    <div class="eyebrow" style="justify-content:center; display:flex;">典珀新媒體 ｜ 2026 品牌 AI 能見度健檢</div>
-    <h1>你的品牌，Google 找得到，<span class="accent">AI 也推薦得到嗎？</span></h1>
-    <p class="sub">消費者搜尋方式正在改變，品牌除了 SEO，更要布局 GEO（生成式 AI 搜尋）。<br>50 分鐘線上健檢，快速找出品牌目前的曝光優勢與成長缺口，並提供下一步優化方向。</p>
-    <a href="#form" class="btn-cta">
-      立即預約品牌 AI 能見度健檢 <span class="badge">企業限定｜免費預約</span>
-    </a>
+    <div class="pretag">典珀限量，活動曝光申請</div>
+    <div class="eyebrow" style="justify-content:center; display:flex;">01 ／ EVENT NEWS APPLICATION</div>
+    <h1>每一場重要活動，<br><span class="accent">都值得被看見。</span></h1>
+    <p class="hero-label">活動新聞曝光</p>
     <div class="hero-meta">
-      <span>50 分鐘線上健檢</span>
-      <span>品牌曝光 × SEO × GEO × AI搜尋 × 媒體聲量</span>
-      <span>企業限定・免費預約</span>
+      <span>每月限額 10 組</span>
+      <span>媒體審議</span>
+      <span>新聞聯播／電視台專訪</span>
     </div>
+    <p class="sub">活動也能成為被 AI 搜尋、認識的資產。</p>
+    <a href="#form" class="btn-cta">申請活動媒體審議</a>
   </div>
 </section>
 
-<!-- ================= AI VISIBILITY CHECKLIST ================= -->
-<section class="checklist">
+<!-- ================= STORY BANNER ================= -->
+<section class="story-banner">
   <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">免費檢測</div>
-      <h2>🔍 免費檢測 5 大品牌能見度</h2>
-    </div>
-    <div class="checklist-grid">
-      <div class="checklist-item"><span class="check">✓</span> Google 搜尋曝光</div>
-      <div class="checklist-item"><span class="check">✓</span> ChatGPT / Gemini AI 能見度</div>
-      <div class="checklist-item"><span class="check">✓</span> GEO 品牌佈局</div>
-      <div class="checklist-item"><span class="check">✓</span> 新聞媒體曝光</div>
-      <div class="checklist-item"><span class="check">✓</span> 競品品牌比較</div>
-    </div>
-    <p class="checklist-cta">立即檢查：你的品牌是否正在被 Google 與 AI 看見？</p>
-    <div style="text-align:center;">
-      <a href="#form" class="btn-cta">👉 立即預約品牌 AI 能見度健檢</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PAIN POINTS ================= -->
-<section class="pain">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">痛點共鳴</div>
-      <h2>行銷做了很多，卻總是看不到成效，您是否也面臨這些困境？</h2>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="icon">🤖</div>
-        <h3>AI 搜尋不到你的品牌</h3>
-        <p>ChatGPT、Gemini 這些 AI 工具，客戶問到相關產業時，會推薦到你的品牌嗎？沒有 GEO 佈局，等於在新一代搜尋管道裡完全隱形。</p>
+    <div class="story-banner-inner">
+      <div class="story-banner-eyebrow">YOUR STORY. MORE REACH.</div>
+      <h2>每一場活動<br>都有被看見的機會</h2>
+      <div class="badge-row">
+        <span class="badge-pill">專業團隊・量身規劃</span>
+        <span class="badge-pill">限量名額・立即申請</span>
       </div>
-      <div class="pain-card">
-        <div class="icon">🔍</div>
-        <h3>搜尋品牌一片空白</h3>
-        <p>客戶上網搜尋不到您的正面新聞或評價？缺乏網路信任背書，白白流失潛在訂單。</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">🏛️</div>
-        <h3>缺乏權威公信力</h3>
-        <p>產品明明很好，卻因為沒有主流媒體報導，在產業中難以樹立領導地位、無法提高客單價。</p>
-      </div>
+      <p class="story-banner-cta">讓您的活動被主流媒體看見！</p>
     </div>
   </div>
 </section>
@@ -368,89 +396,109 @@
 <section class="services">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">核心服務</div>
-      <h2>典珀新媒體，用「雙引擎行銷」幫您打通品牌任督二脈</h2>
+      <div class="eyebrow">OUR SERVICES</div>
+      <h2>讓精彩發生，也讓聲量延伸。</h2>
+      <p style="color:#B9C4E0; margin-top:10px;">從新聞聯播到專業專訪，為活動打造完整的媒體曝光方案。</p>
     </div>
-    <div class="svc-grid">
+    <div class="svc-grid-4">
       <div class="svc-card">
-        <div class="num">SERVICE 01 · 📰</div>
-        <h3>主流媒體聯播新聞</h3>
-        <p>在短時間內將您的品牌故事鋪滿主流新聞網站。建立強大的 Google 搜尋正面屏障，讓客戶一搜就信任，打造堅實的網譽形象。</p>
+        <div class="num">01</div>
+        <h3>新聞聯播</h3>
+        <p>多家媒體同步曝光<br>平面／網路／財經</p>
       </div>
       <div class="svc-card">
-        <div class="num">SERVICE 02 · 📺</div>
-        <h3>權威電視台專訪報導</h3>
-        <p>登上電視螢幕，由權威媒體為您的企業背書！快速拉高品牌格局、創造核心信任感，是您招商、擴展市場與提升產業地位的終極利器。</p>
+        <div class="num">02</div>
+        <h3>電視台專訪</h3>
+        <p>專業製作・提升公信力<br>新聞／綜合台／財經台</p>
+      </div>
+      <div class="svc-card">
+        <div class="num">03</div>
+        <h3>活動前中後整合曝光</h3>
+        <p>讓聲量延續每個階段<br>預熱・現場・報導・延伸</p>
+      </div>
+      <div class="svc-card">
+        <div class="num">04</div>
+        <h3>品牌聲量加乘</h3>
+        <p>打造長期媒體資產<br>讓品牌的故事持續被看見</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= BENEFITS ================= -->
-<section class="benefits">
+<!-- ================= MADE FOR YOUR EVENT ================= -->
+<section class="event-types">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">健檢價值</div>
-      <h2>這不只是一次諮詢，而是一次品牌升級的契機</h2>
+      <div class="eyebrow">02 ／ MADE FOR YOUR EVENT</div>
+      <h2>有活動就有一個，值得被記錄的時刻。</h2>
+      <p style="color:var(--ink-600); margin-top:10px;">適用於以下單位與活動</p>
     </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <span class="tag">專業分析</span>
-        <h3>360° 盲點拆解</h3>
-        <p>針對您現有的社群、網路聲量、媒體形象進行全方位健檢。</p>
-      </div>
-      <div class="benefit-card">
-        <span class="tag">競品對標</span>
-        <h3>找出藍海突圍點</h3>
-        <p>分析同行對手的行銷策略，找出您的差異化優勢與機會缺口。</p>
-      </div>
-      <div class="benefit-card">
-        <span class="tag">落地建議</span>
-        <h3>馬上可執行的策略</h3>
-        <p>拒絕空洞理論，給您馬上就能執行的 GEO 佈局、新聞布局與電視媒體策略報告。</p>
-      </div>
+    <div class="tag-cloud">
+      <span class="tag-pill">新品發表會</span>
+      <span class="tag-pill">品牌開幕</span>
+      <span class="tag-pill">新店開幕</span>
+      <span class="tag-pill">展覽</span>
+      <span class="tag-pill">參展</span>
+      <span class="tag-pill">論壇</span>
+      <span class="tag-pill">高峰會</span>
+      <span class="tag-pill">記者會</span>
+      <span class="tag-pill">發表會</span>
+      <span class="tag-pill">說明會</span>
+      <span class="tag-pill">講座</span>
+      <span class="tag-pill">年度活動</span>
+      <span class="tag-pill">ESG活動</span>
+      <span class="tag-pill">公益活動</span>
+      <span class="tag-pill">校園活動</span>
+      <span class="tag-pill">企業週年慶</span>
+      <span class="tag-pill">聯名活動</span>
+      <span class="tag-pill">頒獎活動</span>
+      <span class="tag-pill">品牌活動</span>
+      <span class="tag-pill">商場活動</span>
+      <span class="tag-pill">體驗活動</span>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="#form" class="btn-cta">為活動量身規劃</a>
     </div>
   </div>
 </section>
 
-<!-- ================= SCARCITY ================= -->
-<section class="scarcity">
-  <div class="container scarcity-inner">
-    <h2>行銷預算要花在刀口上，先健檢、再布局！</h2>
-    <div class="counter"><span class="dot"></span> 名額倒數中 · 僅限前 20 名企業/品牌</div>
-    <p>為了保證每一份健檢報告的深度與品質，本次活動僅限前 20 名企業/品牌免費參與。</p>
-    <p>額滿即恢復原價（<span class="price">價值 NT$3,000 元</span>）。請立即搶位！</p>
-  </div>
-</section>
-
-<!-- ================= 健檢流程 ================= -->
-<section class="process">
+<!-- ================= FEATURED STORIES ================= -->
+<section class="stories">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">健檢流程</div>
-      <h2>只需要 3 分鐘，先找出品牌最該修正的地方</h2>
+      <div class="eyebrow">03 ／ FEATURED STORIES</div>
+      <h2>品牌故事，正在發聲。</h2>
+      <p style="color:var(--ink-600); margin-top:10px;">客戶案例・媒體報導</p>
     </div>
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="step-num">01</div>
-        <h3>填寫基本資料</h3>
-        <p>留下品牌、網站與聯絡方式。</p>
-      </div>
-      <div class="process-card">
-        <div class="step-num">02</div>
-        <h3>選擇目前問題</h3>
-        <p>勾選你目前最困擾的行銷狀況。</p>
-      </div>
-      <div class="process-card">
-        <div class="step-num">03</div>
-        <h3>進行品牌分析</h3>
-        <p>從官網、搜尋、社群與轉換面向判斷。</p>
-      </div>
-      <div class="process-card">
-        <div class="step-num">04</div>
-        <h3>取得改善建議</h3>
-        <p>收到可執行的品牌健檢方向。</p>
-      </div>
+    <div class="story-grid">
+      <a class="story-card" href="https://money.udn.com/money/story/5635/9429681?from=ednappsharing" target="_blank" rel="noopener">
+        <div class="story-num">01</div>
+        <div class="story-cat">餐飲品牌</div>
+        <div class="story-source">經濟日報</div>
+        <h3>Cococina Bistro｜高雄海鮮餐廳新地標</h3>
+        <span class="story-link">閱讀完整報導 →</span>
+      </a>
+      <a class="story-card" href="https://money.udn.com/money/story/5637/9292946" target="_blank" rel="noopener">
+        <div class="story-num">02</div>
+        <div class="story-cat">珠寶設計</div>
+        <div class="story-source">經濟日報</div>
+        <h3>CONVERGE HALATION 尋光｜珠寶品牌的靜奢美學</h3>
+        <span class="story-link">閱讀完整報導 →</span>
+      </a>
+      <a class="story-card" href="https://money.udn.com/money/story/5635/9706670?utm_source=ednlinemobile&amp;utm_medium=share" target="_blank" rel="noopener">
+        <div class="story-num">03</div>
+        <div class="story-cat">活動曝光</div>
+        <div class="story-source">經濟日報</div>
+        <h3>MIRAGE FESTIVAL 2026｜沉浸式體驗與綠色文旅</h3>
+        <span class="story-link">閱讀完整報導 →</span>
+      </a>
+      <a class="story-card" href="https://www.ctee.com.tw/news/20260831701758-431207" target="_blank" rel="noopener">
+        <div class="story-num">04</div>
+        <div class="story-cat">藝術展覽</div>
+        <div class="story-source">工商時報</div>
+        <h3>渡鴉《群青》特展｜從畫展佈局原創 IP</h3>
+        <span class="story-link">閱讀完整報導 →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -460,117 +508,129 @@
   <div class="container">
     <div class="form-wrap">
       <img src="dianbo-logo.png" alt="典珀新媒體 Logo" class="form-logo">
-      <h2>立即填表，預約您的專屬品牌健檢報告</h2>
-      <p class="lede">填寫本表單只需 3 分鐘，我們將由專業團隊為您進行初步評估，並提供 1 次免費的線上品牌健檢諮詢（價值 NT$3,000 元）。</p>
+      <div class="eyebrow" style="justify-content:center; display:flex;">04 ／ 立即申請</div>
+      <h2>活動聲量曝光 申請表單</h2>
+      <p class="lede"><span class="req">*</span> 為必填欄位</p>
 
       <form id="healthCheckForm">
 
         <div class="field">
-          <label class="qlabel">您的姓名<span class="req">*</span></label>
-          <input type="text" name="name" required>
+          <label class="qlabel"><span class="qnum">01</span>品牌/公司</label>
+          <input type="text" name="brandCompany">
         </div>
 
         <div class="field">
-          <label class="qlabel">公司 / 品牌名稱<span class="req">*</span></label>
-          <input type="text" name="company" required>
+          <label class="qlabel"><span class="qnum">02</span>聯絡人姓名<span class="req">*</span></label>
+          <input type="text" name="contactName" required>
         </div>
 
         <div class="field">
-          <label class="qlabel">職稱 / 職位<span class="req">*</span></label>
-          <input type="text" name="title" required>
+          <label class="qlabel"><span class="qnum">03</span>職稱</label>
+          <input type="text" name="jobTitle">
         </div>
 
         <div class="field">
-          <label class="qlabel">聯絡電話<span class="req">*</span></label>
+          <label class="qlabel"><span class="qnum">04</span>聯絡電話<span class="req">*</span></label>
           <input type="tel" name="phone" required>
         </div>
 
         <div class="field">
-          <label class="qlabel">電子信箱 (Email)<span class="req">*</span></label>
+          <label class="qlabel"><span class="qnum">05</span>Email<span class="req">*</span></label>
           <input type="email" name="email" required>
         </div>
 
         <div class="field">
-          <label class="qlabel">LINE ID<span class="req">*</span></label>
-          <input type="text" name="lineId" required>
+          <label class="qlabel"><span class="qnum">06</span>活動名稱<span class="req">*</span></label>
+          <input type="text" name="eventName" required>
         </div>
 
         <div class="field">
-          <label class="qlabel">您的品牌屬於哪種產業（單選）<span class="req">*</span></label>
+          <label class="qlabel"><span class="qnum">07</span>活動日期<span class="req">*</span></label>
+          <input type="date" name="eventDate" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel"><span class="qnum">08</span>活動地點<span class="req">*</span></label>
+          <input type="text" name="eventLocation" required>
+        </div>
+
+        <div class="field">
+          <label class="qlabel"><span class="qnum">09</span>活動類型<span class="req">*</span></label>
+          <select name="eventType" required style="width:100%; padding:13px 15px; border:1.5px solid #DFE3EE; border-radius:10px; font-size:15px; font-family:inherit; color:var(--ink-900); background:#FCFCFA;">
+            <option value="" disabled selected>請選擇活動類型</option>
+            <option value="新品發表會">新品發表會</option>
+            <option value="品牌開幕">品牌開幕</option>
+            <option value="新店開幕">新店開幕</option>
+            <option value="展覽">展覽</option>
+            <option value="參展">參展</option>
+            <option value="論壇">論壇</option>
+            <option value="高峰會">高峰會</option>
+            <option value="記者會">記者會</option>
+            <option value="發表會">發表會</option>
+            <option value="說明會">說明會</option>
+            <option value="講座">講座</option>
+            <option value="年度活動">年度活動</option>
+            <option value="ESG活動">ESG活動</option>
+            <option value="公益活動">公益活動</option>
+            <option value="校園活動">校園活動</option>
+            <option value="企業週年慶">企業週年慶</option>
+            <option value="聯名活動">聯名活動</option>
+            <option value="頒獎活動">頒獎活動</option>
+            <option value="品牌活動">品牌活動</option>
+            <option value="商場活動">商場活動</option>
+            <option value="體驗活動">體驗活動</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="qlabel"><span class="qnum">10</span>活動簡介（活動亮點／目標／預期效益）</label>
+          <textarea name="eventIntro"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="qlabel"><span class="qnum">11</span>期望曝光方式（可複選）</label>
           <div class="options">
-            <label class="opt"><input type="radio" name="industry" value="科技 / 軟體 / 新創" required> 科技 / 軟體 / 新創</label>
-            <label class="opt"><input type="radio" name="industry" value="電商零售 / 傳統製造" required> 電商零售 / 傳統製造</label>
-            <label class="opt"><input type="radio" name="industry" value="餐飲 / 食品 / 旅遊" required> 餐飲 / 食品 / 旅遊</label>
-            <label class="opt"><input type="radio" name="industry" value="美妝保養 / 醫療生技" required> 美妝保養 / 醫療生技</label>
-            <label class="opt"><input type="radio" name="industry" value="教育 / 顧問 / 專業服務" required> 教育 / 顧問 / 專業服務</label>
-            <label class="opt">
-              <input type="radio" name="industry" value="其他" required id="industryOtherRadio">
-              <span style="flex:1;">
-                其他
-                <input type="text" class="other-input" name="industryOther" placeholder="請填寫" disabled>
-              </span>
-            </label>
+            <label class="opt"><input type="checkbox" name="exposureType" value="新聞聯播"> 新聞聯播</label>
+            <label class="opt"><input type="checkbox" name="exposureType" value="電視台專訪"> 電視台專訪</label>
           </div>
         </div>
 
         <div class="field">
-          <label class="qlabel">目前在品牌行銷上，您遇到最大的挑戰是什麼（可複選）</label>
+          <label class="qlabel"><span class="qnum">12</span>聯絡時間（平日時段，可複選）</label>
           <div class="options">
-            <label class="opt"><input type="checkbox" name="challenges" value="不確定品牌在 ChatGPT / Gemini 等 AI 搜尋工具中是否被看見（GEO 佈局痛點）"> 不確定品牌在 ChatGPT / Gemini 等 AI 搜尋工具中是否被看見（GEO 佈局痛點）</label>
-            <label class="opt"><input type="checkbox" name="challenges" value="廣告成本越來越高，轉單效果不如預期"> 廣告成本越來越高，轉單效果不如預期</label>
-            <label class="opt"><input type="checkbox" name="challenges" value="品牌在網路上搜尋不到太多正面新聞或評價（聯播新聞痛點）"> 品牌在網路上搜尋不到太多正面新聞或評價（聯播新聞痛點）</label>
-            <label class="opt"><input type="checkbox" name="challenges" value="品牌缺乏權威感與信任度，想提升產業地位（電視台專訪痛點）"> 品牌缺乏權威感與信任度，想提升產業地位（電視台專訪痛點）</label>
-            <label class="opt"><input type="checkbox" name="challenges" value="預算有限，不知道該把行銷經費用在哪裡"> 預算有限，不知道該把行銷經費用在哪裡</label>
-            <label class="opt">
-              <input type="checkbox" name="challenges" value="其他" id="challengeOtherCheck">
-              <span style="flex:1;">
-                其他
-                <input type="text" class="other-input" name="challengeOther" placeholder="請填寫" disabled>
-              </span>
-            </label>
+            <label class="opt"><input type="checkbox" name="contactTime" value="平日早上"> 平日早上</label>
+            <label class="opt"><input type="checkbox" name="contactTime" value="平日下午"> 平日下午</label>
+            <label class="opt"><input type="checkbox" name="contactTime" value="平日晚上"> 平日晚上</label>
           </div>
         </div>
 
         <div class="field">
-          <label class="qlabel">對於「典珀新媒體」提供的服務，您目前對哪幾項最感興趣（可複選）</label>
-          <div class="options">
-            <label class="opt"><input type="checkbox" name="interests" value="主流媒體聯播新聞 — 想在短時間內獲得大量新聞曝光、建立 Google 搜尋正面屏障"> 【主流媒體聯播新聞】— 想在短時間內獲得大量新聞曝光、建立 Google 搜尋正面屏障。</label>
-            <label class="opt"><input type="checkbox" name="interests" value="電視台專訪/專題報導 — 想透過電視媒體背書，快速打造品牌權威感、提升企業形象"> 【電視台專訪/專題報導】— 想透過電視媒體背書，快速打造品牌權威感、提升企業形象。</label>
-            <label class="opt"><input type="checkbox" name="interests" value="以上皆想了解，希望能有整合性的策略規劃"> 以上皆想了解，希望能有整合性的策略規劃。</label>
-          </div>
+          <label class="qlabel"><span class="qnum">13</span>備註</label>
+          <textarea name="notes"></textarea>
         </div>
 
         <div class="field">
-          <label class="qlabel">如果您獲得【聯播新聞曝光】或【電視台專訪】的機會，您最想宣傳品牌哪一個亮點</label>
-          <textarea name="brandHighlight" placeholder="例如：創辦人故事、明星商品的獨家專利、最新公益活動…等"></textarea>
+          <label class="qlabel"><span class="qnum">14</span>網站</label>
+          <input type="text" name="website">
         </div>
 
-        <div class="field">
-          <label class="qlabel">請問您目前預計投入的品牌行銷每季預算</label>
-          <div class="options">
-            <label class="opt"><input type="radio" name="budget" value="NT$30,000 - NT$100,000"> NT$30,000 - NT$100,000</label>
-            <label class="opt"><input type="radio" name="budget" value="NT$100,000 - NT$200,000"> NT$100,000 - NT$200,000</label>
-            <label class="opt"><input type="radio" name="budget" value="NT$200,000以上"> NT$200,000以上</label>
-            <label class="opt"><input type="radio" name="budget" value="目前尚無具體預算，想先聽聽專業建議"> 目前尚無具體預算，想先聽聽專業建議</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="qlabel">方便與您進行【品牌健檢報告】線上說明的時間（可複選）</label>
-          <div class="options">
-            <label class="opt"><input type="checkbox" name="availability" value="平日 早上 (10:00 - 12:00)"> 平日 早上 (10:00 - 12:00)</label>
-            <label class="opt"><input type="checkbox" name="availability" value="平日 下午 (14:00 - 18:00)"> 平日 下午 (14:00 - 18:00)</label>
-          </div>
-        </div>
+        <p style="font-size:13px; color:var(--ink-600); margin-bottom:20px;">您提供的資料僅供典珀聯繫與規劃本次活動曝光方案使用。</p>
 
         <div class="submit-row">
-          <button type="submit" class="btn-cta" id="submitBtn">送出，預約我的品牌健檢</button>
+          <button type="submit" class="btn-cta" id="submitBtn">送出活動曝光申請</button>
           <div class="status-msg" id="statusMsg"></div>
         </div>
+
+        <p style="margin-top:28px; padding-top:22px; border-top:1px solid #E4E7F0; font-size:13px; color:var(--ink-600); line-height:1.7;">
+          <strong style="display:block; color:var(--navy-900); font-size:14.5px; margin-bottom:6px;">每月限額 10 組</strong>
+          收件後將依活動內容、新聞性及媒體曝光適配度進行審議。<br>
+          審議後再由專人與您聯繫說明適合的曝光方式。
+        </p>
       </form>
     </div>
   </div>
 </section>
+
 
 <!-- ================= SOCIAL LINKS ================= -->
 <section class="social-section">
@@ -599,21 +659,6 @@
    ========================================================================= */
 const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzlBhkLLzstoCKAxCZGmoj33uqpl1tsOkpOfeAnL9EDmviT98FF0HJfSK1SqjStRLiqAA/exec";
 
-// 其他選項的輸入框：勾選/選取「其他」時才能輸入
-document.getElementById('industryOtherRadio').addEventListener('change', function(){
-  document.querySelector('input[name="industryOther"]').disabled = !this.checked;
-});
-document.querySelectorAll('input[name="industry"]').forEach(function(radio){
-  radio.addEventListener('change', function(){
-    if(this.id !== 'industryOtherRadio'){
-      document.querySelector('input[name="industryOther"]').disabled = true;
-    }
-  });
-});
-document.getElementById('challengeOtherCheck').addEventListener('change', function(){
-  document.querySelector('input[name="challengeOther"]').disabled = !this.checked;
-});
-
 const form = document.getElementById('healthCheckForm');
 const submitBtn = document.getElementById('submitBtn');
 const statusMsg = document.getElementById('statusMsg');
@@ -630,22 +675,20 @@ form.addEventListener('submit', async function(e){
   const formData = new FormData(form);
   const payload = {
     "填寫時間": new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }),
-    "姓名": formData.get('name') || '',
-    "公司/品牌名稱": formData.get('company') || '',
-    "職稱/職位": formData.get('title') || '',
+    "品牌/公司": formData.get('brandCompany') || '',
+    "聯絡人姓名": formData.get('contactName') || '',
+    "職稱": formData.get('jobTitle') || '',
     "聯絡電話": formData.get('phone') || '',
-    "電子信箱": formData.get('email') || '',
-    "LINE ID": formData.get('lineId') || '',
-    "產業": formData.get('industry') === '其他'
-      ? ('其他：' + (formData.get('industryOther') || ''))
-      : (formData.get('industry') || ''),
-    "最大挑戰": formData.getAll('challenges').map(function(v){
-        return v === '其他' ? ('其他：' + (formData.get('challengeOther') || '')) : v;
-      }).join('；'),
-    "感興趣服務": formData.getAll('interests').join('；'),
-    "品牌亮點": formData.get('brandHighlight') || '',
-    "每季預算": formData.get('budget') || '',
-    "方便說明時間": formData.getAll('availability').join('；')
+    "Email": formData.get('email') || '',
+    "活動名稱": formData.get('eventName') || '',
+    "活動日期": formData.get('eventDate') || '',
+    "活動地點": formData.get('eventLocation') || '',
+    "活動類型": formData.get('eventType') || '',
+    "活動簡介": formData.get('eventIntro') || '',
+    "期望曝光方式": formData.getAll('exposureType').join('；'),
+    "聯絡時間": formData.getAll('contactTime').join('；'),
+    "備註": formData.get('notes') || '',
+    "網站": formData.get('website') || ''
   };
 
   submitBtn.disabled = true;
@@ -672,9 +715,7 @@ form.addEventListener('submit', async function(e){
 
     if(ok){
       form.reset();
-      document.querySelector('input[name="industryOther"]').disabled = true;
-      document.querySelector('input[name="challengeOther"]').disabled = true;
-      statusMsg.textContent = '✅ 送出成功！我們將盡快與您聯繫，安排專屬品牌健檢諮詢。';
+      statusMsg.textContent = '✅ 送出成功！我們將盡快審議並與您聯繫，說明適合的曝光方式。';
       statusMsg.className = 'status-msg show ok';
     } else {
       throw new Error('HTTP ' + res.status + ' | ' + detail);
@@ -684,7 +725,7 @@ form.addEventListener('submit', async function(e){
     statusMsg.className = 'status-msg show err';
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = '送出，預約我的品牌健檢';
+    submitBtn.textContent = '送出活動曝光申請';
   }
 });
 </script>
